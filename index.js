@@ -1,13 +1,13 @@
 // lets connect to mongodb and do some cool stuffs
 
 // import our library (just the tools we need)
-import { MongoClient } from "mongodb"
+import { mongoClient } from "mongodb"
 
 // import our credentials to connect
-import {uri} from "./secrets.js"
+import { uri } from "./secrets.js"
 
 // connect to our mongo server
-const client = new MongoClient(uri)
+const client = new mongoClient(uri)
 
 //create a reference to our database
 const db = client.db('mongo0')
