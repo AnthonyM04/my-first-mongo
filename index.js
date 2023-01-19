@@ -1,42 +1,40 @@
-// lets connect to mongodb and do some cool stuffs
+// Let's connect to MongoDB and do some cool stuffs
 
-// import our library (just the tools we need)
-import { mongoClient } from "mongodb"
+// Import our library (just the tools we need)
+import { MongoClient } from "mongodb";
 
-// import our credentials to connect
-import { uri } from "./secrets.js"
+// Import our credentials to connect
+import { uri } from "./secrets.js";
 
-// connect to our mongo server
-const client = new mongoClient(uri)
+// Connect to our Mongo server
+const client = new MongoClient(uri);
 
-//create a reference to our database
-const db = client.db('mongo0')
+// Create a reference to our database
+const db = client.db("mongo0");
 
-// lets add a domcument to our collection...
+// Let's add a document to our collection...
 
-// lets create a piece of furniture
+// Let's create a piece of furniture
 
 const stool = {
-    name: 'Ergo Stool',
-    brand: 'Autonomous',
-    color: 'Evergreen',
-    price: 169,
-    warranty: '2 years',
+  name: 'Ergo Stool',
+  brand: 'Autonomous',
+  color: 'Evergreen',
+  price: 169.00,
+  warranty: '2 years',
 }
-
 const chair = {
-    name: 'Ergo Stool',
-    brand: 'Autonomous',
-    color: 'Gray',
-    price: 269,
-    warranty: '70 years',
+  name: 'Ergo Chair',
+  brand: 'Autonomous',
+  color: 'Grey',
+  price: 369.00,
+  warranty: '2 years',
 }
 
 async function addOneItem(item) {
-    await db.collection('items').insertOne(stool)
-        .then()
-        .catch()
+  await db.collection("items").insertOne(item);
+  console.log("Item was added.");
 }
 
-addOneItem(stool)
-addOneItem(chair)
+addOneItem(stool);
+addOneItem(chair);
